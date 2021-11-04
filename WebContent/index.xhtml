@@ -12,7 +12,41 @@
 	
 		<h1>Sugestões</h1>
 	
-	
-	</h:body>
-	
+		<h:form>
+			<table>
+				<tr>
+					<td>Nome</td>
+					<td>
+						<h:inputText value="#{sugestaoMBean.sugestao.nome}" required="true" requiredMessage="Nome: Campo obrigatório"/>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>E-mail</td>
+					<td>
+						<h:inputText value="#{sugestaoMBean.sugestao.email}" required="true" requiredMessage="E-mail: Campo obrigatório">
+							<f:validator validatorId="validadorEmail"/>
+						</h:inputText>
+					</td>
+				</tr>
+			
+				<tr>
+					<td>Mensagem</td>
+					<td>
+						<h:inputTextarea value="#{sugestaoMBean.sugestao.mensagem}"/>
+					</td>
+				</tr>
+				
+				<tr>
+					<td colspan="2">
+						<h:commandButton value="Enviar" action="#{sugestaoMBean.enviar}"/>
+					</td>
+				</tr>
+			
+			</table>			
+		</h:form>
+		
+		<h:messages/>
+		
+	</h:body>	
 </html>
